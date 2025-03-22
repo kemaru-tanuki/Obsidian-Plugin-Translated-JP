@@ -462,7 +462,7 @@ var CustomFramesSettingTab = class extends import_obsidian2.PluginSettingTab {
           );
         });
       new import_obsidian2.Setting(content)
-        .setName("${frame.displayName} を開くin Center")
+        .setName("中央に開く")
         .setDesc(
           "このフレームを側面のペインではなく、固定されていない中央エディタで開くかどうか。これは、狭い表示で上手く機能しないサイトや、ノートを開く必要がないサイトに便利です。"
         )
@@ -514,9 +514,7 @@ var CustomFramesSettingTab = class extends import_obsidian2.PluginSettingTab {
         .setName("追加 CSS")
         .setDesc(
           createFragment((f) => {
-            f.createSpan({
-              text: "このフレームに適用する追加 CSS スニペット",
-            });
+            f.createSpan({ text: "このフレームに適用する追加 CSS スニペット" });
             f.createEl("br");
             f.createEl("em", {
               text: "これはデスクトップでのみ適用されます。",
@@ -680,37 +678,37 @@ var _CustomFrameView = class extends import_obsidian3.ItemView {
 var CustomFrameView = _CustomFrameView;
 CustomFrameView.actions = [
   {
-    name: "Return to original page",
+    name: "元のページに戻る",
     icon: "home",
     action: (v) => v.frame.return(),
   },
   {
-    name: "${frame.displayName} を開くdev tools",
+    name: "開発ツールを開く",
     icon: "binary",
     action: (v) => v.frame.toggleDevTools(),
   },
   {
-    name: "Copy link",
+    name: "リンクをコピー",
     icon: "link",
     action: (v) => navigator.clipboard.writeText(v.frame.getCurrentUrl()),
   },
   {
-    name: "${frame.displayName} を開くin browser",
+    name: "ブラウザで開く",
     icon: "globe",
     action: (v) => open(v.frame.getCurrentUrl()),
   },
   {
-    name: "Refresh",
+    name: "更新",
     icon: "refresh-cw",
     action: (v) => v.frame.refresh(),
   },
   {
-    name: "Go forward",
+    name: "進む",
     icon: "arrow-right",
     action: (v) => v.frame.goForward(),
   },
   {
-    name: "Go back",
+    name: "戻る",
     icon: "arrow-left",
     action: (v) => v.frame.goBack(),
   },

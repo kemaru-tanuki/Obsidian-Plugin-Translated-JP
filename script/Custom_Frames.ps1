@@ -79,5 +79,21 @@ ForEach-Object { $_ -creplace [regex]::Escape("""Need help using the plugin? Fee
 ForEach-Object { $_ -creplace [regex]::Escape("""If you like this plugin and want to support its development, you can do so through my website by clicking this fancy image!"""),`
                                               """このプラグインが気に入ったら、この素敵な画像をクリックしてウェブサイトから開発支援できます！""" } |
 
+# CustomFrameView.actions
+ForEach-Object { $_ -creplace [regex]::Escape("""Return to original page"""),`
+                                              """元のページに戻る""" } |
+ForEach-Object { $_ -creplace [regex]::Escape("""Open dev tools"""),`
+                                              """開発ツールを開く""" } |
+ForEach-Object { $_ -creplace [regex]::Escape("""Copy link"""),`
+                                              """リンクをコピー""" } |
+ForEach-Object { $_ -creplace [regex]::Escape("""Open in browser"""),`
+                                              """ブラウザで開く""" } |
+ForEach-Object { $_ -creplace [regex]::Escape("""Refresh"""),`
+                                              """更新""" } |
+ForEach-Object { $_ -creplace [regex]::Escape("""Go forward"""),`
+                                              """進む""" } |
+ForEach-Object { $_ -creplace [regex]::Escape("""Go back"""),`
+                                              """戻る""" } |
+
 Set-Content -Path "$filePath" -Encoding UTF8
 Write-Host "書き込みが完了しました。"
